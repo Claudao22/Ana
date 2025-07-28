@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ana, Com Amor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fff5f5;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+            background-image: url('https://transparenttextures.com/patterns/light-paper-fibers.png');
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            opacity: 0;
+            animation: float 6s ease-in-out infinite;
+            color: #ff6b6b;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        header {
+            text-align: center;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #d23669;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .photo-frame {
+            width: 300px;
+            height: 300px;
+            margin: 30px auto;
+            border: 15px solid white;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(210, 54, 105, 0.3);
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            transform: rotate(-5deg);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .photo-frame:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .photo-frame::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border: 2px dashed #ffb8b8;
+            border-radius: 10px;
+            z-index: -1;
+        }
+
+        .couple-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .declaration {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: justify;
+            margin-top: 50px;
+        }
+
+        .declaration::before {
+            content: """;
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            color: #ffb8b8;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+        }
+
+        .declaration::after {
+            content: """;
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            color: #ffb8b8;
+            position: absolute;
+            bottom: -40px;
+            right: 20px;
+            line-height: 1;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            text-align: right;
+            margin-top: 30px;
+            color: #d23669;
+        }
+
+        .envelope {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 40px;
+            background-color: #ff9e9e;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .envelope:hover {
+            transform: translateY(-5px);
+        }
+
+        .envelope::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 20px solid #ff9e9e;
+            transform: translateY(-100%);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #d23669;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .photo-frame {
+                width: 250px;
+                height: 250px;
+            }
+
+            .declaration {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+
+    <div class="container">
+        <header>
+            <h1>Ana</h1>
+            <p style="color: #d23669; font-style: italic;">Para a mulher que ilumina meus dias</p>
+        </header>
+
+        <div class="photo-frame">
+            <img src="WhatsApp Image 2025-07-26 at 14.00.30.jpeg" alt="Ana sorrindo" class="couple-photo">
+        </div>
+
+        <div class="declaration">
+            <p>Queria usar os dons e talentos que o Senhor me deu pra te dizer que Ele transcende qualquer idade.</p>
+
+            <p>Viver ao seu lado minha Ana tem sido fruto de muita oração que resultaram nos melhores dias aqui na terra, liderar uma mulher como você e caminhar juntos, pra mim não há qualquer explicação senão a única plausível que é uma graça autêntica do Deus vivo.</p>
+
+            <p>1 ano atrás vivia um rapaz que tomou coragem pra responder um story, e mesmo apavorado foi e quanto mais te conhecia, mais meus traumas viam à tona e com mais medo ficava por estar me apaixonando. Mas hoje é bom ver o quão estou seguro, por saber que o próprio Deus nos mantém com a consciência limpa em ter escolhido viver algo que o agrada.</p>
+
+            <p>Eu a amo e te admiro muito, ainda que de longe tenho torcido pra que você daí realize cada sonho, meu amor, na certeza de que pra mim você é um pedaço do céu aqui que o Senhor usa pra molhar meu deserto.</p>
+
+            <p>Te amo e oro pra que você sustente aquilo que me prometeu no WhatsApp, aguente seus BO porque vai ser cheio até umas horas.</p>
+
+            <div class="signature">Seu Homem</div>
+        </div>
+    </div>
+
+    <div class="envelope" onclick="animateHearts()">
+        <span style="color: white;">❤️</span>
+    </div>
+
+    <footer>
+        Feito com ❤️ para Ana - Todos os direitos do coração reservados
+    </footer>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 4 + 's';
+            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+            document.getElementById('hearts').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        function animateHearts() {
+            const interval = setInterval(createHeart, 300);
+            setTimeout(() => {
+                clearInterval(interval);
+            }, 3000);
+        }
+
+        window.onload = function() {
+            const interval = setInterval(createHeart, 500);
+            setTimeout(() => {
+                clearInterval(interval);
+            }, 2000);
+        };
+
+        document.querySelector('.envelope').addEventListener('click', animateHearts);
+    </script>
+</body>
+</html>
